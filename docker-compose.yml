@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  hapi-fhir:
+    image: hapiproject/hapi:latest
+    container_name: hapi-fhir
+    ports:
+      - "8080:8080"
+    networks:
+      - fhir-net
+
+  hsb:
+    build: .
+    container_name: hsb
+    ports:
+      - "5000:5000"
+    depends_on:
+      - hapi-fhir
+    networks:
+      - fhir-net
+
+networks:
+  fhir-net:
+    driver: bridge
