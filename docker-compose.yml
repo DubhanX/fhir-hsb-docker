@@ -1,0 +1,14 @@
+services:
+  fhir:
+    image: hapiproject/hapi:latest
+    container_name: hapi-fhir
+    ports:
+      - "8080:8080"
+
+  hsb:
+    build: .
+    container_name: hsb
+    ports:
+      - "5000:5000"
+    depends_on:
+      - fhir

@@ -1,0 +1,44 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p3",
+        "name": [ { "use": "official", "family": "Pineres", "given": ["Dubhan"] } ],
+        "gender": "male",
+        "birthDate": "2003-07-31"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/p3"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "e-p3",
+        "status": "planned",
+        "subject": { "reference": "Patient/p3" }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/e-p3"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "msg-3",
+        "eventCoding": { "system": "http://hl7.org/fhir/message-events", "code": "admin-notify" },
+        "source": { "name": "HSB-Simulator", "endpoint": "http://localhost:5000/hsb" },
+        "focus": [ { "reference": "Encounter/e-p3" } ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MessageHeader/msg-3"
+      }
+    }
+  ]
+}

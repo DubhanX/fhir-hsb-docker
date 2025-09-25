@@ -1,0 +1,6 @@
+{
+  "resourceType": "Encounter",
+  "id": "e-p3",
+  "status": "planned",
+  "subject": { "reference": "Patient/p3" }
+}
