@@ -232,11 +232,6 @@ curl http://localhost:8080/fhir/MessageHeader/msg-3 | jq .
    * `Patient`: `http://localhost:8080/fhir/Patient/p3`
    * `Encounter`: `http://localhost:8080/fhir/Encounter/e-p3`
    * `MessageHeader`: `http://localhost:8080/fhir/MessageHeader/msg-3`
-3. Crear request **POST** para enviar `bundle-transaction.json` a:
-
-   * `http://localhost:5000/hsb/message`
-4. Click **Send** y verificar que el `transaction-response` tenga `status 200` y confirmación de cada recurso.
-
 ---
 
 ## 🔹 📊 Flujo de Datos (Diagrama ASCII)
